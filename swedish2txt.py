@@ -4,7 +4,7 @@ import cv2
 
 img_path = "./data/swedish/set1-part0/"
 
-ann_path = "./data/swedish/annotations.txt"
+ann_path = "E:\\Data\\dataset\\swedish\\annotations2.txt"
 
 out_path = "/".join(ann_path.split("/")[0:-1] + ["new.txt"])
 
@@ -39,10 +39,12 @@ with open(ann_path, "r") as f:
             
             labels = labels.split(";")
             for label in labels:
-                if(label == "\n" or label == "MISC_SIGNS"):
+                if(label == "\n" or label == "MISC_SIGNS" or label == " \n"):
                     continue
-
-                is_visible, x2, y2, x1, y1, category = label.split(", ")[:6]
+                try:
+                    is_visible, x2, y2, x1, y1, category = label.split(", ")[:6]
+                except:
+                    print(">>>>>", img, label)
                 height = str(float(y2) - float(y1))
                 width = str(float(x2) - float(x1))
                 if category == "OTHER" or category == "INFORMATION" or category == "UNREADABLE":

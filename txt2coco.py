@@ -77,6 +77,7 @@ if __name__ == '__main__':
         for c in f.readlines():
             k, v = c.rstrip("\n").split(":")
             category_dict[k] = v
+        f.close()
     else:
         printf(f"fail reading {args.cat}!")
 
@@ -105,7 +106,8 @@ if __name__ == '__main__':
 
         for i in trainset:
             line = data[i]
-            items = line.strip("\n").split(",")   
+            items = line.strip().rstrip(",").split(",")
+
             img_id = coco.insertTrainImage(file_name=items[0], height=items[1], width=items[2])
             if(img_id == -1):
                 printf("something error occured when insert an image into train!")
@@ -118,7 +120,7 @@ if __name__ == '__main__':
         
         for i in valset:
             line = data[i]
-            items = line.strip("\n").split(",")   
+            items = line.strip().rstrip(",").split(",")
             img_id = coco.insertValImage(file_name=items[0], height=items[1], width=items[2])
             if(img_id == -1):
                 printf("something error occured when insert an image into val!")
@@ -131,7 +133,7 @@ if __name__ == '__main__':
 
         for i in testset:
             line = data[i]
-            items = line.strip("\n").split(",")   
+            items = line.strip().rstrip(",").split(",")
             img_id = coco.insertTestImage(file_name=items[0], height=items[1], width=items[2])
             if(img_id == -1):
                 printf("something error occured when insert an image into test!")
