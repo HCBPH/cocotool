@@ -1,0 +1,28 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: 当前文件",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": [
+                "--txt_path", "./data/cctsdb/convert.txt",
+                "--coco_path", "E:/Data/dataset/TrafficSign",
+                "--img_path", "E:/Data/dataset/CCTSDB/Images",
+                "--cat", "./data/cctsdb/category.txt",
+                // "--txt_path", "./data/task4/convert.txt",
+                // "--coco_path", "E:/Data/dataset/TrafficSign",
+                // "--img_path", "E:/Data/dataset/task4/images",
+                // "--cat", "./data/task4/category.txt",
+                
+                "--logging",
+                "--split", "0.6,0.3,0.3",
+                "--appending",
+                "--old_ann_path", "E:/Data/dataset/TrafficSign/annotations"
+            ]
+        }
+    ]
+}

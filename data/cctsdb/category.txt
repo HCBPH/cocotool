@@ -1,0 +1,3 @@
+mandatory:3
+prohibitory:1
+warning:2
